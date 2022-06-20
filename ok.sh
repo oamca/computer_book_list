@@ -102,11 +102,11 @@ ufw allow from 192.168.1.1
 ufw enable
 cat << EOF > /usr/bin/s.sh
 ufw status numbered
-echo "begin with 1: "
+echo \"begin with 1: \"
 read numdel
-ufw delete ${numdel}
-myip="${SSH_CLIENT%% *}"
-ufw allow from ${myip}
+ufw delete \$\{numdel\}
+myip=\"\$\{SSH_CLIENT%% *\}\"
+ufw allow from \$\{myip\}
 ufw status verbose
 EOF
 chmod +x /usr/bin/s.sh
