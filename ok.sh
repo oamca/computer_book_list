@@ -110,6 +110,8 @@ chmod +x /usr/bin/s.sh
 nano /etc/ssh/sshd_config
 service ssh restart
 ufw allow 22
-echo "******************************************"
-echo "* ufw allow (ssh port) before ufw enable *"
-echo "******************************************"
+echo "******************************"
+echo "*  1. ufw allow (ssh port)   *"
+echo "*  2. ufw enable             *"
+echo "*  3. service xray restart   *"
+echo "******************************"
