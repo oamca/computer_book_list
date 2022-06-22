@@ -1,8 +1,8 @@
-apt update
-apt install curl nano ufw -y
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
 echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl -p
+apt update
+apt install curl nano ufw -y
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u root
 rm /usr/local/etc/xray/config.json
 #nano /usr/local/etc/xray/config.json
@@ -97,6 +97,7 @@ cat << EOF > /usr/local/etc/xray/config.json
   ]
 }
 EOF
+
 cat << EOF > /usr/bin/s.sh
 ufw status numbered
 echo "begin with 1: "
@@ -107,6 +108,8 @@ ufw allow from \${myip}
 ufw status verbose
 EOF
 chmod +x /usr/bin/s.sh
+
+echo "port 22" >> /etc/ssh/sshd_config
 nano /etc/ssh/sshd_config
 service ssh restart
 ufw allow 22
