@@ -109,10 +109,11 @@ ufw status verbose
 EOF
 chmod +x /usr/bin/s.sh
 
+ufw allow 22
 echo "port 22" >> /etc/ssh/sshd_config
 nano /etc/ssh/sshd_config
 service ssh restart
-ufw allow 22
+ss -tulpn
 echo "******************************"
 echo "*  1. ufw allow (ssh port)   *"
 echo "*  2. ufw enable             *"
