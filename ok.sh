@@ -97,9 +97,6 @@ cat << EOF > /usr/local/etc/xray/config.json
   ]
 }
 EOF
-ufw allow ssh
-ufw allow from 192.168.1.1
-ufw enable
 cat << EOF > /usr/bin/s.sh
 ufw status numbered
 echo "begin with 1: "
@@ -110,4 +107,9 @@ ufw allow from \${myip}
 ufw status verbose
 EOF
 chmod +x /usr/bin/s.sh
-service xray restart
+nano /etc/ssh/sshd_config
+service ssh restart
+ufw allow 22
+echo "******************************************"
+echo "* ufw allow (ssh port) before ufw enable *"
+echo "******************************************"
