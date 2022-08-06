@@ -110,7 +110,7 @@ EOF
 chmod +x /usr/bin/s.sh
 
 ufw allow 22
-echo "port 22" >> /etc/ssh/sshd_config
+#echo "port 22" >> /etc/ssh/sshd_config
 nano /etc/ssh/sshd_config
 service ssh restart
 ss -tulpn
