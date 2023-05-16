@@ -16,7 +16,7 @@ cat << EOF > /usr/local/etc/xray/config.json
     },
     "inbounds": [
         {
-            "port":80,
+            "port":8080,
             "protocol": "vmess",
             "settings": {
                 "clients": [
@@ -39,7 +39,7 @@ cat << EOF > /usr/local/etc/xray/config.json
             }
         },
       {
-         "port":8080,
+         "port":80,
          "protocol":"vmess",
          "settings":{
             "clients":[
